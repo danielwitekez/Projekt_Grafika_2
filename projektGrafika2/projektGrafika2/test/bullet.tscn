@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8pgigqcy8nwr"]
+
+[ext_resource type="Texture2D" uid="uid://by4sw2syussvo" path="res://pixil-frame-0.png" id="1_7doyk"]
+[ext_resource type="Script" path="res://Bullet.gd" id="1_c1vrm"]
+[ext_resource type="Texture2D" uid="uid://dqd3bvnwgtlne" path="res://pixil-frame-1.png" id="2_iungn"]
+[ext_resource type="Texture2D" uid="uid://cvssa37asx0h7" path="res://pixil-frame-3.png" id="3_u4i2b"]
+[ext_resource type="Texture2D" uid="uid://c3q1qqwwgos6f" path="res://pixil-frame-4.png" id="4_pexbb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33f8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7doyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iungn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4i2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pexbb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_c1vrm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.6875, 2.6875)
+sprite_frames = SubResource("SpriteFrames_33f8p")
+autoplay = "default"
+frame_progress = 0.637097
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(40, 35)
+polygon = PackedVector2Array(-29, -46, -29, -24, -51, -24, -51, -46)
